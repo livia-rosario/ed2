@@ -26,7 +26,7 @@ O sistema oferece funcionalidades de **Cadastro, Consulta, Atualização, Remoç
 
 1️⃣ Clone o repositório:
 ```bash
-git clone https://github.com/livia-rosario/Estrutura-de-Dados
+git clone https://github.com/livia-rosario/ed2
 cd Estrutura-de-Dados
 ```
 2️⃣ Compile o projeto:
