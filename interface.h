@@ -11,6 +11,10 @@
 #define CLR_BLUE    "\x1b[34m"
 #define CLR_CYAN    "\x1b[36m"
 
+// --- Funções Principais da Interface ---
 void iniciarLoopPrincipal(BDPaciente* bd);
+
+// --- Funções Auxiliares de Interface ---
+void pausarExecucao();
 
 #endif // INTERFACE_H
