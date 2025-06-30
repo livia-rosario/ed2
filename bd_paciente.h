@@ -14,7 +14,7 @@ BDPaciente* bd_create();
 void bd_free(BDPaciente* bd);
 void bd_append(BDPaciente* bd, Paciente paciente);
 int bd_remove(BDPaciente* bd, int id);
-void bd_load_csv(BDPaciente* bd, const char* filepath);
+int bd_load_csv(BDPaciente* bd, const char* filepath);
 void bd_save_csv(BDPaciente* bd, const char* filepath);
 PacienteNode* bd_get_first(BDPaciente* bd);
 Paciente bd_get_paciente_info(PacienteNode* node);
