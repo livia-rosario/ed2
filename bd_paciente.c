@@ -73,12 +73,11 @@ int bd_remove(BDPaciente* bd, int id) {
     return 1;
 }
 
-void bd_load_csv(BDPaciente* bd, const char* filepath) {
+int bd_load_csv(BDPaciente* bd, const char* filepath) {
     FILE* file = fopen(filepath, "r");
+    // Se o arquivo não existe, apenas retorna 0 para que o chamador decida o que fazer.
     if (file == NULL) {
-        printf("AVISO: Arquivo '%s' nao encontrado. Um novo sera criado ao salvar.\n", filepath);
-        pausarExecucao(); // Pausa para o usuário ler o aviso
-        return;
+        return 0; // Retorna 0 para "Arquivo não encontrado"
     }
 
     char line[256];
@@ -89,10 +88,12 @@ void bd_load_csv(BDPaciente* bd, const char* filepath) {
         sscanf(line, "%d,%[^,],%[^,],%d,%s", &p.id, p.cpf, p.nome, &p.idade, p.data_cadastro);
         bd_append(bd, p);
     }
-    // Verifica se o fechamento do arquivo foi bem-sucedido
+    
     if (fclose(file) != 0) {
         perror("Erro ao fechar o arquivo de leitura");
     }
+
+    return 1; // Retorna 1 para "Sucesso"
 }
 
 void bd_save_csv(BDPaciente* bd, const char* filepath) {
